@@ -14,8 +14,7 @@ import com.supera.gerenciador_de_tarefas_supera.repository.ListaRepository;
 @Service
 public class ListaService {
 
-    @Autowired
-    private ListaRepository listaRepository;
+    @Autowired ListaRepository listaRepository;
 
     @Transactional
     public Lista criarLista(Lista lista) {

@@ -17,11 +17,9 @@ import com.supera.gerenciador_de_tarefas_supera.repository.ListaRepository;
 @Service
 public class ItemService {
 
-    @Autowired
-    private ItemRepository itemRepository;
+    @Autowired ItemRepository itemRepository;
 
-    @Autowired
-    private ListaRepository listaRepository;
+    @Autowired ListaRepository listaRepository;
     
     @Transactional
     public Item criarItem(UUID listaId, Item item){
