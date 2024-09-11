@@ -40,29 +40,29 @@ O **Gerenciador de Tarefas** é uma aplicação web desenvolvida com Java e Spri
 
 3. **Acesse a Aplicação**
 
-    Abra seu navegador e vá para http://localhost:8080/listas para ver a lista de tarefas.
+Abra seu navegador e vá para http://localhost:8080/listas para ver a lista de tarefas.
 
 ## Estrutura dos Diretórios
 
-    src/main/java/com/supera/gerenciador_de_tarefas_supera: Contém o código-fonte da aplicação.
-    models: Entidades JPA.
-    controllers: Controladores REST e Thymeleaf.
-    services: Lógica de negócios.
-    repository: Interfaces de repositório para acesso a dados.
-    src/main/resources: Contém arquivos de configuração e templates Thymeleaf.
-    application.properties: Configurações da aplicação.
-    templates: Templates Thymeleaf para o front-end.
+src/main/java/com/supera/gerenciador_de_tarefas_supera: Contém o código-fonte da aplicação.
+models: Entidades JPA.
+controllers: Controladores REST e Thymeleaf.
+services: Lógica de negócios.
+repository: Interfaces de repositório para acesso a dados.
+src/main/resources: Contém arquivos de configuração e templates Thymeleaf.
+application.properties: Configurações da aplicação.
+templates: Templates Thymeleaf para o front-end.
 
 ## Testes
 
-    Os testes unitários e de integração estão localizados em src/test/java. Para executar os testes, use:
+Os testes unitários e de integração estão localizados em src/test/java. Para executar os testes, use:
     ```bash
     mvn test
 
 ## Documentação da API
 
-    A documentação da API pode ser acessada em http://localhost:8080/swagger-ui.html após iniciar a aplicação.
+A documentação da API pode ser acessada em http://localhost:8080/swagger-ui.html após iniciar a aplicação.
 
 ## Contato
 
-    Para mais informações, entre em contato com andrey.developer@hotmail.com
+Para mais informações, entre em contato com andrey.developer@hotmail.com
