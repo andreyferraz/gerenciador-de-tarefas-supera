@@ -44,14 +44,14 @@ Abra seu navegador e vá para http://localhost:8080/listas para ver a lista de t
 
 ## Estrutura dos Diretórios
 
-src/main/java/com/supera/gerenciador_de_tarefas_supera: Contém o código-fonte da aplicação.
-models: Entidades JPA.
-controllers: Controladores REST e Thymeleaf.
-services: Lógica de negócios.
-repository: Interfaces de repositório para acesso a dados.
-src/main/resources: Contém arquivos de configuração e templates Thymeleaf.
-application.properties: Configurações da aplicação.
-templates: Templates Thymeleaf para o front-end.
+- src/main/java/com/supera/gerenciador_de_tarefas_supera: Contém o código-fonte da aplicação.
+- models: Entidades JPA.
+- controllers: Controladores REST e Thymeleaf.
+- services: Lógica de negócios.
+- repository: Interfaces de repositório para acesso a dados.
+- src/main/resources: Contém arquivos de configuração e templates Thymeleaf.
+- application.properties: Configurações da aplicação.
+- templates: Templates Thymeleaf para o front-end.
 
 ## Testes
 
