@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Lista</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${lista.id == null ? 'Nova Lista' : 'Editar Lista'}"></h1>
+        <form th:action="@{${lista.id == null} ? '/listas/salvar' : '/listas/atualizar/' + ${lista.id}}" th:object="${lista}" method="post">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" th:field="*{nome}" class="form-control" id="nome" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

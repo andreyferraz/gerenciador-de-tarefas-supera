@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listas de Tarefas</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Listas de Tarefas</h1>
+        <a href="/listas/nova" class="btn btn-primary">Nova Lista</a>
+        
+        <div th:each="lista : ${listas}" class="mt-4">
+            <h2 th:text="${lista.nome}"></h2>
+            <a th:href="@{/listas/editar/{id}(id=${lista.id})}" class="btn btn-secondary">Editar Lista</a>
+            <a th:href="@{/listas/remover/{id}(id=${lista.id})}" class="btn btn-danger">Remover Lista</a>
+
+            <!-- Listagem dos itens da lista -->
+            <h3>Itens:</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Estado</th>
+                        <th>Prioridade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${lista.itens}">
+                        <td th:text="${item.titulo}"></td>
+                        <td th:text="${item.descricao}"></td>
+                        <td th:text="${item.estado}"></td>
+                        <td th:text="${item.prioridade}"></td>
+                        <td>
+                            <a th:href="@{/itens/editar/{id}(id=${item.id})}" class="btn btn-secondary">Editar</a>
+                            <a th:href="@{/itens/remover/{id}(id=${item.id})}" class="btn btn-danger">Remover</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Exibir mensagem se não houver itens na lista -->
+            <div th:if="${#lists.isEmpty(lista.itens)}">
+                <p>Não há itens nesta lista.</p>
+            </div>
+
+            <!-- Link para adicionar novo item à lista -->
+            <a th:href="@{/itens/novo(listaId=${lista.id})}" class="btn btn-primary">Adicionar Item</a>
+        </div>
+    </div>
+
+            <!-- Bootstrap JS and dependencies -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
