@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Formulário de Item</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <h1 class="my-4" th:text="${item.id == null ? 'Criar Novo Item' : 'Editar Item'}"></h1>
-        <form th:action="@{${item.id == null} ? '/itens/novo' : '/itens/editar/' + ${item.id}}" th:object="${item}" method="post">
+        <form th:action="@{${item.id == null} ? '/itens/novo' : '/itens/editar/' + ${item.id}}" th:object="${item}"
+            method="post">
             <div class="form-group">
                 <label for="titulo">Título:</label>
-                <input type="text" class="form-control" id="titulo" th:field="*{titulo}" required/>
+                <input type="text" class="form-control" id="titulo" th:field="*{titulo}" required />
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição:</label>
-                <input type="text" class="form-control" id="descricao" th:field="*{descricao}" required/>
+                <input type="text" class="form-control" id="descricao" th:field="*{descricao}" required />
             </div>
             <div class="form-group">
                 <label for="estado">Estado:</label>
@@ -27,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label for="prioridade">Prioridade:</label>
-                <input type="number" class="form-control" id="prioridade" th:field="*{prioridade}" required/>
+                <input type="number" class="form-control" id="prioridade" th:field="*{prioridade}" required />
             </div>
             <div class="form-group">
                 <label for="lista">Lista:</label>
@@ -45,4 +48,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

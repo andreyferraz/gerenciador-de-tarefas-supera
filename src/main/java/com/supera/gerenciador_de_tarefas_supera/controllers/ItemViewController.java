@@ -31,49 +31,51 @@ public class ItemViewController {
     @GetMapping
     public String listarItens(Model model) {
         List<Item> itens = itemService.recuperarTodosItens();
-        model.addAttribute("itens", itens); 
-        return "itens/listar"; 
+        model.addAttribute("itens", itens);
+        return "itens/listar";
     }
 
     // Exibe o formulário para criar um novo item
     @GetMapping("/novo")
-    public String exibirFormularioCriacao(@RequestParam(value = "listaId", required = false) UUID listaId, Model model) {
-        model.addAttribute("item", new Item()); 
-        model.addAttribute("listas", listaService.recuperarTodasListas()); 
+    public String exibirFormularioCriacao(@RequestParam(value = "listaId", required = false) UUID listaId,
+            Model model) {
+        model.addAttribute("item", new Item());
+        model.addAttribute("listas", listaService.recuperarTodasListas());
         if (listaId != null) {
             model.addAttribute("listaSelecionada", listaService.recuperarLista(listaId));
         }
-        return "itens/formulario"; 
+        return "itens/formulario";
     }
 
     // Processa o formulário de criação de um novo item
     @PostMapping("/novo")
     public String criarItem(@ModelAttribute Item item, @RequestParam("listaId") UUID listaId) {
-        itemService.criarItem(listaId, item); 
-        return "redirect:/itens"; 
-    }  
+        itemService.criarItem(listaId, item);
+        return "redirect:/itens";
+    }
 
     // Exibe o formulário para editar um item existente
     @GetMapping("/editar/{id}")
     public String exibirFormularioEdicao(@PathVariable UUID id, Model model) {
         Item item = itemService.recuperarItem(id);
-        model.addAttribute("item", item); 
-        model.addAttribute("listas", listaService.recuperarTodasListas()); 
-        return "itens/formulario"; 
+        model.addAttribute("item", item);
+        model.addAttribute("listas", listaService.recuperarTodasListas());
+        return "itens/formulario";
     }
-    
+
     // Processa o formulário de edição
     @PostMapping("/editar/{id}")
-    public String editarItem(@PathVariable UUID id, @ModelAttribute Item itemAtualizado, @RequestParam("listaId") UUID listaId) {
-        itemAtualizado.setLista(listaService.recuperarLista(listaId)); 
-        itemService.editarItem(id, itemAtualizado); 
-        return "redirect:/itens"; 
-    }  
+    public String editarItem(@PathVariable UUID id, @ModelAttribute Item itemAtualizado,
+            @RequestParam("listaId") UUID listaId) {
+        itemAtualizado.setLista(listaService.recuperarLista(listaId));
+        itemService.editarItem(id, itemAtualizado);
+        return "redirect:/itens";
+    }
 
     // Deleta um item pelo ID
     @GetMapping("/deletar/{id}")
     public String deletarItem(@PathVariable UUID id) {
         itemService.removerItem(id);
-        return "redirect:/itens"; 
-    }      
+        return "redirect:/itens";
+    }
 }

@@ -26,21 +26,21 @@ public class ListaViewController {
     public String listarListas(Model model) {
         List<Lista> listas = listaService.recuperarTodasListas();
         model.addAttribute("listas", listas);
-        return "listas/lista"; 
+        return "listas/lista";
     }
 
     // Exibir formulário para criar uma nova lista
     @GetMapping("/nova")
     public String exibirFormularioNovaLista(Model model) {
         model.addAttribute("lista", new Lista());
-        return "listas/formulario"; 
+        return "listas/formulario";
     }
 
     // Processar criação de nova lista
     @PostMapping("/salvar")
     public String salvarLista(@ModelAttribute("lista") Lista lista) {
         listaService.criarLista(lista);
-        return "redirect:/listas"; 
+        return "redirect:/listas";
     }
 
     // Exibir formulário para editar uma lista existente
@@ -48,20 +48,20 @@ public class ListaViewController {
     public String exibirFormularioEditarLista(@PathVariable UUID id, Model model) {
         Lista lista = listaService.recuperarLista(id);
         model.addAttribute("lista", lista);
-        return "listas/formulario"; 
+        return "listas/formulario";
     }
 
     // Processar atualização da lista
     @PostMapping("/atualizar/{id}")
     public String atualizarLista(@PathVariable UUID id, @ModelAttribute("lista") Lista listaAtualizada) {
         listaService.editarLista(id, listaAtualizada);
-        return "redirect:/listas"; 
+        return "redirect:/listas";
     }
 
     // Remover uma lista
     @GetMapping("/remover/{id}")
     public String removerLista(@PathVariable UUID id) {
         listaService.removerLista(id);
-        return "redirect:/listas"; 
+        return "redirect:/listas";
     }
 }
